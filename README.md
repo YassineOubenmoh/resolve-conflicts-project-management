@@ -100,9 +100,9 @@ Storage (MinIO)
 <h2>🚀 Getting Started</h2>
 <h4>🔧 Prerequisites</h4>
 <ul>
-    <li>Java 17+</li>
-    <li>Node.js & npm</li>
-    <li>Docker (optional)</li>
+    <li>Java 21+</li>
+    <li>Spring Boot 3.4.0</li>
+    <li>Docker</li>
     <li>RabbitMQ</li>
     <li>MinIO</li>
 </ul>
