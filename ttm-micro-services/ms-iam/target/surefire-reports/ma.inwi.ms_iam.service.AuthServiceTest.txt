@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: ma.inwi.ms_iam.service.AuthServiceTest
+-------------------------------------------------------------------------------
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.122 s -- in ma.inwi.ms_iam.service.AuthServiceTest
