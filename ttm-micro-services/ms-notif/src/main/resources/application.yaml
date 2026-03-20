@@ -1,0 +1,129 @@
+spring:
+  application:
+    name: ms-notif
+
+  # ================================= #
+  #      Security Configuration       #
+  # ================================= #
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8091/realms/ttm
+          jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+
+  # Cloud Configuration
+  cloud:
+    config:
+      enabled: false
+
+  spring:
+    security:
+      enabled=false:
+
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+
+  ######################
+  # SMTP SERVER CONFIG #
+  ######################
+  mail:
+    host: localhost
+    port: 1025
+    username: "noreply@myapp.local"
+    password: ""
+    properties:
+      mail:
+        smtp:
+          auth: false
+          starttls:
+            enable: false
+
+
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/ttm-notif-db}
+    username: postgres
+    password: yassinecoding
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-timeout: 30000
+      maximum-pool-size: 5
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+
+# ================================= #
+#          Keycloak Config          #
+# ================================= #
+authorization:
+  server-url: http://localhost:8091
+  client:
+    id: ms-iam
+    secret: D7XPT3fqXXI09Xrs8Le6I9GG6hqNrM8O
+  realm: ttm
+
+  ##############################
+  # FreeMarker Template CONFIG #
+  ##############################
+
+  freemarker:
+    template-loader-path: classpath:/templates/
+    suffix: .ftl
+
+  ############################
+  # Datasource Configuration #
+  ############################
+
+
+
+  ########################
+  # Server Configuration #
+  ########################
+
+server:
+  port: 8085
+
+
+  #########################
+  # Swagger Configuration #
+  #########################
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+
+
+###############################
+# Eureka Client Configuration #
+###############################
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    enabled: false
+
+
+
+
+sonar:
+  projectKey: ms-project
+  projectName: Project Microservice
+  host:
+    url: http://localhost:9000
+  login: squ_91b2a5245330a581f09c91c5ec0e6a8cfa508dfa
+  sources: src/main/java
+  tests: src/test/java

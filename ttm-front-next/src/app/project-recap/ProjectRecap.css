@@ -1,0 +1,152 @@
+
+.navBar-container {
+  width: 100%;
+  position: relative;
+  height: 4rem;
+  border: #d4d4d493 1px solid;
+
+}
+
+
+
+/* Ensure the nav is centered without affecting height */
+header nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+/* Default link style */
+.nav-link {
+  color: #4b5563; /* Gray color */
+  text-decoration: none;
+  transition: color 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  font-size: 14px !important; /* Adjust the font size here */
+
+}
+
+/* Hover effect */
+.nav-link:hover {
+  color: #4907a0; /* Blue color on hover */
+}
+
+
+/* Active link style with underline and blue text */
+.nav-link.active {
+  color: #4907a0; /* Blue color for active link */
+}
+
+
+/* Active link style with underline */
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  top: 2.1rem; /* Position at the bottom of the link */
+  right: 3.5px;
+  width: 100%; /* Adjust the width of the underline */
+  height: 2px; /* Thickness of the underline */
+  background-color: #4907a0; /* Blue underline */
+}
+
+
+/* Custom underline for Contacts link */
+.nav-link.Attachments.active::after {
+  left: -3px; /* Custom left position for Contacts */
+  width: 105%; /* Custom width for Contacts */
+  background-color: #4907a0; /* Orange underline for Contacts */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.campaign-details {
+    font-family: Arial, sans-serif;
+    color: #333;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  
+  .tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .tabs button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .tabs .active-tab {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .info-item {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .highlight {
+    font-weight: bold;
+    color: #007bff;
+  }
+  
+  .countdown {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #ff0000;
+  }
+  
+  .subject,
+  .description {
+    margin-bottom: 20px;
+  }
+  
+  .details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .detail-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+  }

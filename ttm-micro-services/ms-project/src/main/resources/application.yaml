@@ -1,0 +1,125 @@
+spring:
+  application:
+    name: ms-project
+
+
+  # ================================= #
+  #      Security Configuration       #
+  # ================================= #
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8091/realms/ttm
+          jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+
+  # Cloud Configuration
+  cloud:
+    config:
+      enabled: false
+
+  spring:
+    security:
+      enabled=false:
+
+  # Datasource Configuration
+
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/ttm-ms-project-db}
+    username: postgres
+    password: yassinecoding
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-timeout: 30000
+      maximum-pool-size: 5
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+# ================================= #
+#          Keycloak Config          #
+# ================================= #
+authorization:
+  server-url: http://localhost:8091
+  client:
+    id: ms-iam
+    secret: D7XPT3fqXXI09Xrs8Le6I9GG6hqNrM8O
+  realm: ttm
+
+
+  # ================================================== #
+  #    Resilience4j (circuit breaker) Configuration    #
+  # ================================================== #
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      userClientCB:
+        registerHealthIndicator: true
+        slidingWindowSize: 5           #  Définit le nombre de requêtes prises en compte pour calculer le taux d'échec.
+        failureRateThreshold: 50        # Pourcentage de requêtes échouées pour ouvrir le circuit
+        waitDurationInOpenState: 5s     # Temps avant de retester un appel après ouverture du circuit (halfOpen)
+        permittedNumberOfCallsInHalfOpenState: 3 # Nombre d'appels permis en mode semi-ouvert
+        minimumNumberOfCalls: 5         # Nombre minimal de requêtes avant d'évaluer l'état du circuit
+
+
+      documentServiceCB:
+        registerHealthIndicator: true
+        slidingWindowSize: 5
+        failureRateThreshold: 50
+        waitDurationInOpenState: 5s
+        permittedNumberOfCallsInHalfOpenState: 3
+        minimumNumberOfCalls: 5
+
+
+
+# ================================= #
+#       Actuator Configuration      #
+# ================================= #
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+  health:
+    circuitbreakers:
+      enabled: true
+
+
+
+  # Server Configuration
+server:
+  port: 8080
+
+  # Swagger Configuration
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+
+# Eureka Client Configuration
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    enabled: false
+
+
+sonar:
+  projectKey: ms-project
+  projectName: Project Microservice
+  host:
+    url: http://localhost:9000
+  login: squ_91b2a5245330a581f09c91c5ec0e6a8cfa508dfa
+  sources: src/main/java
+  tests: src/test/java

@@ -1,0 +1,64 @@
+/* Define the fade-in and slide-up animations */
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes slideUp {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideDown {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
+  
+  /* Apply animations */
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .animate-fadeOut {
+    animation: fadeOut 0.5s ease-in-out;
+  }
+  
+  .animate-slideUp {
+    animation: slideUp 0.5s ease-in-out;
+  }
+  
+  .animate-slideDown {
+    animation: slideDown 0.5s ease-in-out;
+  }
+  
+  /* Styling for the background */
+  .bg-gradient-to-r {
+    background: linear-gradient(135deg, #f39c12, #e74c3c, #9b59b6);
+  }
+  
+  /* Button hover effect */
+  button:hover {
+    opacity: 0.8;
+  }
+  

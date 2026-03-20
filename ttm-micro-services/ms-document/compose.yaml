@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  minio:
+    image: minio/minio:latest
+    container_name: minio_demo
+    ports:
+      - 7000:9000
+      - 7001:9001
+    environment:
+      MINIO_ACCESS_KEY: minio
+      MINIO_SECRET_KEY: minio123
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: yassineouben123
+      MINIO_BROWSER: "on"
+      MINIO_MAX_REQUEST_SIZE: "104857600" # 100MB
+      MINIO_MAX_OBJECT_SIZE: "104857600" # 100MB
+    volumes:
+      - minio_data:/data
+    command: server /data --console-address ":9001"
+    restart: unless-stopped
+
+volumes:
+  minio_data:
