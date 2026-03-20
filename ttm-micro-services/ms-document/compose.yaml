@@ -7,10 +7,10 @@ services:
       - 7000:9000
       - 7001:9001
     environment:
-      MINIO_ACCESS_KEY: minio
-      MINIO_SECRET_KEY: minio123
-      MINIO_ROOT_USER: minioadmin
-      MINIO_ROOT_PASSWORD: yassineouben123
+      MINIO_ACCESS_KEY: youraccesskey
+      MINIO_SECRET_KEY: yoursecretkey
+      MINIO_ROOT_USER: yourrootuser
+      MINIO_ROOT_PASSWORD: yourrootpassword
       MINIO_BROWSER: "on"
       MINIO_MAX_REQUEST_SIZE: "104857600" # 100MB
       MINIO_MAX_OBJECT_SIZE: "104857600" # 100MB

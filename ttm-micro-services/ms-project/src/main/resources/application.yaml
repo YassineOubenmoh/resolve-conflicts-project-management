@@ -26,8 +26,8 @@ spring:
 
   datasource:
     url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/ttm-ms-project-db}
-    username: postgres
-    password: yassinecoding
+    username: yourusername
+    password: yourpassword
     driver-class-name: org.postgresql.Driver
     hikari:
       connection-timeout: 30000
@@ -120,6 +120,6 @@ sonar:
   projectName: Project Microservice
   host:
     url: http://localhost:9000
-  login: squ_91b2a5245330a581f09c91c5ec0e6a8cfa508dfa
+  login: yourloginkey
   sources: src/main/java
   tests: src/test/java

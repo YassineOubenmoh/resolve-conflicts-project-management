@@ -47,8 +47,8 @@ spring:
 
   datasource:
     url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/ttm-notif-db}
-    username: postgres
-    password: yassinecoding
+    username: yourusername
+    password: yourpassword
     driver-class-name: org.postgresql.Driver
     hikari:
       connection-timeout: 30000
@@ -68,7 +68,7 @@ authorization:
   server-url: http://localhost:8091
   client:
     id: ms-iam
-    secret: D7XPT3fqXXI09Xrs8Le6I9GG6hqNrM8O
+    secret: yoursecretkey
   realm: ttm
 
   ##############################
@@ -124,6 +124,6 @@ sonar:
   projectName: Project Microservice
   host:
     url: http://localhost:9000
-  login: squ_91b2a5245330a581f09c91c5ec0e6a8cfa508dfa
+  login: yourkeylogin
   sources: src/main/java
   tests: src/test/java
